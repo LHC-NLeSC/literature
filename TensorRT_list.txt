@@ -1,0 +1,101 @@
+
+ORIGINAL LIST
+
+- A Deep Learning Compiler for Vector Processor, {'doi': '10.1007/978-3-030-67720-6_46'}
+- Accelerated identification method of industrial instrument based on yolov5, {'doi': '10.1109/ICICML57342.2022.10009712'}
+- Accelerating Depthwise Separable Convolutions with Vector Processor, {'doi': '10.1007/978-3-030-86340-1_12'}
+- AdaNeRF: Adaptive Sampling for Real-Time Rendering of Neural Radiance Fields, {'doi': '10.1007/978-3-031-19790-1_16'}
+- Applying Recent Machine Learning Approaches to Accelerate the Algebraic Multigrid Method for Fluid Simulations, {'doi': '10.1007/978-3-030-96498-6_3'}
+- A Performance Study Depending on Execution Times of Various Frameworks in Machine Learning Inference, https://ieeexplore.ieee.org/abstract/document/9659677
+- Combining Task- and Data-Level Parallelism for High-Throughput CNN Inference on Embedded CPUs-GPUs MPSoCs, {'doi': '10.1007/978-3-030-60939-9_2'}
+- Comprehensive Analysis of Heterogeneous Computing Performance of Dnns Under Typical Frameworks on Cloud and Edge Computing Platforms, https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4176358
+- DeepCuts: a deep learning optimization framework for versatile GPU workloads, https://dl.acm.org/doi/abs/10.1145/3453483.3454038
+- DeepEdgeBench: Benchmarking Deep Neural Networks on Edge Devices, https://ieeexplore.ieee.org/abstract/document/9610432?- casa_token=WOZEeEoGdE8AAAAA:Y_SREpBNWsRZoFR1aLgVe0tp2jsrPOYT1HZjor1l8wzuHsYoYos1CQC02uApsRZexGjz0xm1UaY
+- Deep Learning at Scale on NVIDIA V100 Accelerators, {'doi': '10.1109/PMBS.2018.8641600'}
+- Deep Learning Based Super-Resolution for Medical Volume Visualization with Direct Volume Rendering, {'doi': '10.1007/978-3-031-20713-6_8'}
+- Deep Learning Inference Parallelization on Heterogeneous Processors With TensorRT, {'doi': '10.1109/LES.2021.3087707'}
+- Efficient Integer-Arithmetic-Only Convolutional Networks with Bounded ReLU, {'doi': '10.1109/ISCAS51556.2021.9401448'}
+- Energy-Efficient and High-Throughput CNN Inference on Embedded CPUs-GPUs MPSoCs, {'doi': '10.1007/978-3-031-04580-6_9'}
+- Evaluating and analyzing the energy efficiency of CNN inference on high-performance GPU, https://onlinelibrary.wiley.com/doi/abs/10.1002/cpe.6064
+- Exploring TensorRT to Improve Real-Time Inference for Deep Learning, https://userweb.cs.txstate.edu/~k_y47/webpage/pubs/icess22.pdf
+- HALF: Holistic Auto Machine Learning for FPGAs, {'doi': '10.1109/FPL53798.2021.00069'}
+- How Can Deep Neural Networks Be Generated Efficiently for Devices with Limited Resources?, {'doi': '10.1007/978-3-319-94544-6_3'}
+- Improving the performance of sea surface temperature predictions using a revised method, https://www.tandfonline.com/doi/abs/10.1080/2150704X.2021.2005269
+- LANA: Latency Aware Network Acceleration, {'doi': '10.1007/978-3-031-19775-8_9'}
+- Learning Compression from Limited Unlabeled Data, {'doi': '10.1007/978-3-030-01246-5_46'}
+- Measuring Inference Performance of Machine-Learning Frameworks on Edge-class Devices with the MLMark™ Benchmark, https://www.eembc.org/techlit/articles/- MLMARK-WHITEPAPER-FINAL-1.pdf
+- On Practical Approach to Uniform Quantization of Non-redundant Neural Networks, {'doi': '10.1007/978-3-030-30484-3_29'}
+- Optimizing Driver Assistance Systems for Real-Time performance on Resource Constrained GPUs, {'doi': '10.1109/CICT48419.2019.9066239'}
+- Optimizing Winograd-Based Convolution with Tensor Cores, https://dl.acm.org/doi/abs/10.1145/3472456.3472473
+- ResPerfNet: Deep Residual Learning for Regressional Performance Modeling of Deep Neural Networks, https://arxiv.org/abs/2012.01671
+- SMOF: Squeezing More Out of Filters Yields Hardware-Friendly CNN Pruning, {'doi': '10.1007/978-3-031-20497-5_20'}
+- Tensor-Based CUDA Optimization for ANN Inferencing Using Parallel Acceleration on Embedded GPU, {'doi': '10.1007/978-3-030-49161-1_25'}
+- Trainable Thresholds for Neural Network Quantization, {'doi': '10.1007/978-3-030-20518-8_26'}
+
+
+ANALYSIS
+
+- AdaNeRF: Adaptive Sampling for Real-Time Rendering of Neural Radiance Fields, {'doi': '10.1007/978-3-031-19790-1_16'}
+
+    "The resulting sparse, dual-network pipeline can be rendered in real-time on consumer GPUs using our custom real-time renderer based on CUDA and TensorRT."
+    - Their network is the fastest, but they compare TensorRT against TensorRT, and only in one case the network is not executed via TensorRT; they also win in that case
+
+
+- Combining Task- and Data-Level Parallelism for High-Throughput CNN Inference on Embedded CPUs-GPUs MPSoCs, {'doi': '10.1007/978-3-030-60939-9_2'}
+
+    "the best-known and state-of-the-art for the NVIDIA Jetson TX2 MPSoC, Tensorrt DL framework [12], which exploits only data-level parallelism, available in the CNN"
+    Their own framework uses both data and task-parallelism.
+    The performance results show that they can beat TensorRT, but performance are close.
+    Performance improvement may come from this task+data parallel approach more than be implementation dependent.
+
+- Comprehensive Analysis of Heterogeneous Computing Performance of Dnns Under Typical Frameworks on Cloud and Edge Computing Platforms, https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4176358
+
+    "PyTorch framework is used for the training and inference aims on both devices, and TensorRT framework is only used for the inference purpose on Jetson Nano."
+    "The inference framework of PyTorch was applied in cloud platform and edge platform. TensorRT inference framework was only applied in edge platform"
+    "The results presented in Table 2 reveal that under PyTorch inference framework, the inference time of Colab and Jetson Nano will decrease with the increase of batch sizes, however when it decreases to a certain extent, it tends to be stable and will not continue to decrease."
+    "when using the NVIDIA TensorRT framework or efficiently deploying NNs onto the embedded Jetson Nano computing platform, the inference time of the same network model is always at a nearly stable level under different batch size."
+    Unfortunately they use TensorRT only on the Jetson and not on the discrete GPUs; anyway interesting.
+
+- Deep Learning at Scale on NVIDIA V100 Accelerators, {'doi': '10.1109/PMBS.2018.8641600'}
+
+    " For inference, we will use Nvidia’s TensorRT library as it not only supports inference with the commonly used 32-bit floating point (FP32), but also with 8- bit integers (INT8). We will compare the throughput advantage of INT8, and highlight the negligible difference in accuracy when compared to FP32."
+    "This section quantifies the inference performance using NVIDIA’s TensorRT library."
+    "running models with INT8 only works if the batch size is evenly divisible by 4"
+    "We can see that INT8 mode is ∼3.7x faster than FP32."
+    "In certain instances, delayed batch processing is acceptable in which case the focus is using large batch sizes to increase throughput."
+    "t can be seen that without batch processing the inference performance is very low. This is because the GPU is not assigned enough workload to keep it busy. The larger the batch size was used, the higher the inference performance was produced. This begins to taper off as the batch size increases. The largest batch size is only limited by GPU memory."
+    This is an interesting paper, and our findings so far seem to agree with it. Need to investigate INT8 for our application.
+
+- Deep Learning Based Super-Resolution for Medical Volume Visualization with Direct Volume Rendering, {'doi': '10.1007/978-3-031-20713-6_8'}
+
+    "). With run-time optimizations and integration of TensorRT, which can provide up to 6x faster accelerated inference[19], our system has the potential to achieve real-time frame-rate."
+    They do not investigate inference.
+
+- Deep Learning Inference Parallelization on Heterogeneous Processors With TensorRT, {'doi': '10.1109/LES.2021.3087707'}
+
+    "In this letter, we present a TensorRT-based parallelization method that uses both GPU and NPUs to maximize the throughput of a single DNN application."
+    Not relevant for our work, only highlights the fact that using more of the available hardware could be beneficial in some cases.
+
+- Efficient Integer-Arithmetic-Only Convolutional Networks with Bounded ReLU, {'doi': '10.1109/ISCAS51556.2021.9401448'}
+
+    "We have proposed a method for converting FPN networks into integer-arithmetic-only networks without sacrificing accuracy"
+    Not relevant for our work, although it seems to point to the fact that we should explore INT8 networks.
+
+- Energy-Efficient and High-Throughput CNN Inference on Embedded CPUs-GPUs MPSoCs, {'doi': '10.1007/978-3-031-04580-6_9'}
+
+    "The obtained results, in terms of system throughput and energy consumption, are compared with results obtained by the best-known DL framework for Jetson MPSoCs called TensorRT [15]. This comparison shows that our extended methodology can achieve CNN inference on embedded CPUs-GPUs MPSoCs with the same or higher throughput but with less energy consumption"
+    "However, TensorRT relies on layer-by-layer (sequential) execution of CNN layers and only one CPU processor is utilized for launching GPU engines and sending data. In this way, the available CPUs-GPUs MPSoC hardware resources are not utilized in the most efficient way in terms of high-throughput."
+    Again this is not directly applicable, and again the way to beat TensorRT is to utilize more hardware.
+
+- Exploring TensorRT to Improve Real-Time Inference for Deep Learning, https://userweb.cs.txstate.edu/~k_y47/webpage/pubs/icess22.pdf
+
+    "In this paper, we examine the effectiveness of TensorRT by comparing it to the vanilla (without TensorRT) PyTorch framework. In particular, there are three workflows to integrate the TensorRT engines with PyTorch-compatible models. We evaluate the performance of these three TensorRT integration workflows under a variety of workloads"
+    "In this work, we compare the conventional, default workflow in PyTorch that does not involve TensorRT at all (denoted as W0) with three workflows that do integrate TensorRT (tagged by W1, W2, W3, respectively)."
+    "(W1) In this workflow, we accelerate inference using Torch-TensorRT, an integration of PyTorch with NVIDIA TensorRT."
+    "(W2) There are three steps in this workflow: 1) exporting the PyTorch model to the ONNX file, 2)TensorRT engine building 3)TensorRT engine deployment in addition to model loading."
+    "(W3) This workflow also starts with exporting a model from PyTorch to ONNX using torch.onnx.export() function in PyTorch library. After obtaining the ONNX model, we run the model inference using the ONNX Runtime execution provider(EP)."
+    "Adopting TensorRT incurs minimum inference outputs difference compared to the default PyTorch framework. In other words, the benefits TensorRT brings in are not at the cost of noticeable sacrifice in inference accuracy."
+    "Applying TensorRT can significantly improve the inference time. Light-weighted model architecture, such as MobileNet and SqueezeNet, can benefit even more from TensorRT."
+    "By applying TensorRT, improvement on inference throughput can be obtained in most cases and may be very significant for certain network architectures. Inference throughput increases with batch size increases until reaches hardware limits."
+    "TensorRT, especially via the workflow W2: ONNX to TensorRT Conversion, utilizes GPU memory in a significantly more efficient and scalable manner."
+

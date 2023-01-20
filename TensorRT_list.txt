@@ -23,7 +23,7 @@ ORIGINAL LIST
 - Improving the performance of sea surface temperature predictions using a revised method, https://www.tandfonline.com/doi/abs/10.1080/2150704X.2021.2005269
 - LANA: Latency Aware Network Acceleration, {'doi': '10.1007/978-3-031-19775-8_9'}
 - Learning Compression from Limited Unlabeled Data, {'doi': '10.1007/978-3-030-01246-5_46'}
-- Measuring Inference Performance of Machine-Learning Frameworks on Edge-class Devices with the MLMark™ Benchmark, https://www.eembc.org/techlit/articles/- MLMARK-WHITEPAPER-FINAL-1.pdf
+- Measuring Inference Performance of Machine-Learning Frameworks on Edge-class Devices with the MLMark™ Benchmark, https://www.eembc.org/techlit/articles/MLMARK-WHITEPAPER-FINAL-1.pdf
 - On Practical Approach to Uniform Quantization of Non-redundant Neural Networks, {'doi': '10.1007/978-3-030-30484-3_29'}
 - Optimizing Driver Assistance Systems for Real-Time performance on Resource Constrained GPUs, {'doi': '10.1109/CICT48419.2019.9066239'}
 - Optimizing Winograd-Based Convolution with Tensor Cores, https://dl.acm.org/doi/abs/10.1145/3472456.3472473
@@ -99,3 +99,39 @@ ANALYSIS
     "By applying TensorRT, improvement on inference throughput can be obtained in most cases and may be very significant for certain network architectures. Inference throughput increases with batch size increases until reaches hardware limits."
     "TensorRT, especially via the workflow W2: ONNX to TensorRT Conversion, utilizes GPU memory in a significantly more efficient and scalable manner."
 
+- HALF: Holistic Auto Machine Learning for FPGAs, {'doi': '10.1109/FPL53798.2021.00069'}
+
+    "he FPGA designs outperform the embedded GPU implementation regarding all shown metrics, although the GPU has a higher frequency, larger batch size, and a model optimized with TensorRT"
+    Not really relevant as we are not considering FPGAs.
+
+- How Can Deep Neural Networks Be Generated Efficiently for Devices with Limited Resources?, {'doi': '10.1007/978-3-319-94544-6_3'}
+
+    Not relevant for our work.
+
+- LANA: Latency Aware Network Acceleration, {'doi': '10.1007/978-3-031-19775-8_9'}
+
+    "We measure latency in 2 settings: (i) in Pytorch framework, and (ii) TensorRT [54]."
+    They use TensorRT and latency is lower than PyTorch.
+
+- Learning Compression from Limited Unlabeled Data, {'doi': '10.1007/978-3-030-01246-5_46'}
+
+    They only seem to use TensorRT, and it looks faster than their baseline.
+
+- Measuring Inference Performance of Machine-Learning Frameworks on Edge-class Devices with the MLMark™ Benchmark, https://www.eembc.org/techlit/articles/MLMARK-WHITEPAPER-FINAL-1.pdf
+
+    "In Figure 6, the batch size was increased on the NVIDIA Jetson Xavier from 1 (a single image) to 32 simultaneous images per call to the inference engine for the MobileNet V1.0 workload. TensorRT also supports concurrent streams, which are plotted against the batch data for similar input sizes. Latency at the 95th percentile is plotted on the secondary vertical axis. While batching shows a significant increase in performance at the start of the curve, ROI begins to decrease rapidly after 16 images. Latency for batching is relatively linear. Concurrency shows no increase in throughput and even worse latency."
+    It seems that using multiple batches is more effective than having multiple streams, but this is on a small embedded GPU.
+
+- ResPerfNet: Deep Residual Learning for Regressional Performance Modeling of Deep Neural Networks, https://arxiv.org/abs/2012.01671
+
+    In this paper they model the performance (accuracy/time) of neural networks, so it is not relevant for us.
+
+- SMOF: Squeezing More Out of Filters Yields Hardware-Friendly CNN Pruning, {'doi': '10.1007/978-3-031-20497-5_20'}
+
+    Pruning of networks, not really relevant.
+
+- Tensor-Based CUDA Optimization for ANN Inferencing Using Parallel Acceleration on Embedded GPU, {'doi': '10.1007/978-3-030-49161-1_25'}
+
+    "Running on the GPU for parallelization, the inference performance is evaluated with and without optimization using TensorRT inference accelerator."
+    "with TensorRT optimization, the performance showed a drastic improvement from 147% in Max-P Core All to 254% improvement in Max-P Core ARM"
+    On embedded GPU using TensorRT compared against native CUDA, for the same network, results in better performance.

@@ -1,9 +1,9 @@
 
 ORIGINAL LIST
 
-- A Deep Learning Compiler for Vector Processor, 10.1007/978-3-030-67720-6_46
++ A Deep Learning Compiler for Vector Processor, 10.1007/978-3-030-67720-6_46
 + Accelerated identification method of industrial instrument based on yolov5, 10.1109/ICICML57342.2022.10009712
-- Accelerating Depthwise Separable Convolutions with Vector Processor, 10.1007/978-3-030-86340-1_12
++ Accelerating Depthwise Separable Convolutions with Vector Processor, 10.1007/978-3-030-86340-1_12
 + AdaNeRF: Adaptive Sampling for Real-Time Rendering of Neural Radiance Fields, 10.1007/978-3-031-19790-1_16
 - Applying Recent Machine Learning Approaches to Accelerate the Algebraic Multigrid Method for Fluid Simulations, 10.1007/978-3-030-96498-6_3
 + A Performance Study Depending on Execution Times of Various Frameworks in Machine Learning Inference, 10.1109/UYMS54260.2021.9659677
@@ -34,10 +34,20 @@ ORIGINAL LIST
 
 ANALYSIS
 
+- A Deep Learning Compiler for Vector Processor
+
+    They write their own compiler for ML models, it applies optimizations, but there is no comparison with respect to inference with TensorRT.
+
 - Accelerated identification method of industrial instrument based on yolov5
 
     "The model acceleration was carried out on the Jetson TX2 platform based on tensorRT, and the instrument online detection speed of 30 frames/s was achieved"
     Using TensorRT is faster than using the inference of PyTorch.
+
+- Accelerating Depthwise Separable Convolutions with Vector Processor
+
+    "We found that using the TensorRT acceleration library, the GPU achieves high computational performance, but the computational efficiency is low. Increasing the batch size improves the computational efficiency and performance of GPU significantly. Therefore, we use one as the size to test the effectiveness of the method."
+    The authors present a technique to run a specialized convolution on vector processors.
+    Their hardware is more efficient, but performance or TensorRT are higher.
 
 - AdaNeRF: Adaptive Sampling for Real-Time Rendering of Neural Radiance Fields
 
